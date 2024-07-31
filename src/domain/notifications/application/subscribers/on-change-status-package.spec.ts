@@ -65,7 +65,7 @@ describe('On change status package', () => {
       await inMemoryPackage.create(_package)
 
     } catch (error) {
-      // console.log('Deu ruim' ,error)
+      console.log('Deu ruim' ,error)
     }
 
     // const notification = await sendNotifications.execute({
