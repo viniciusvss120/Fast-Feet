@@ -1,0 +1,25 @@
+{
+  "name": "fast-feet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.14.11",
+    "typescript": "^5.5.3",
+    "@types/bcrypt": "^5.0.2",
+    "@types/bcryptjs": "^2.4.6",
+    "unplugin-swc": "^1.4.5",
+    "vite-tsconfig-paths": "^4.3.2",
+    "vitest": "^2.0.3"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1"
+  }
+}
