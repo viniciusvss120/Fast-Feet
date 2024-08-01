@@ -14,7 +14,7 @@ import { CreatePackageEvent } from "@/domain/events/create-package";
 // }
 
 export interface PackageProps {
-  packageId: UniqueEntityId
+  id: UniqueEntityId
   name: string
   userId: string
   recipient: Recipient
@@ -24,8 +24,8 @@ export interface PackageProps {
 }
 
 export class Package extends AggregateRoot<PackageProps> {
-  get packageId() {
-    return this.props.packageId
+  get id() {
+    return this.props.id
   }
 
   get name() {
@@ -74,11 +74,11 @@ export class Package extends AggregateRoot<PackageProps> {
 
   static create(props: PackageProps) {
     const _package = new Package(props)
-    if (!props.packageId) {
+    if (!_package.id) {
 
       this.addDomainEvent(new CreatePackageEvent(_package))
     }
-    
+
     return _package
   }
   static addDomainEvent(arg0: CreatePackageEvent) {

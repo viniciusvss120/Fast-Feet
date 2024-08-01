@@ -3,17 +3,17 @@ import { PackageRepository } from "../../repository/package-repository";
 import { UniqueEntityId } from "@/core/entities/unique-entiti-id";
 
 interface PackagesRequest {
-  packageId: UniqueEntityId
+  id: UniqueEntityId
 }
 
 export class DeletePackageUseCase {
-  constructor(private packageRepository: PackageRepository) {}
+  constructor(private packageRepository: PackageRepository) { }
 
   async execute({
-    packageId,  
-  
-  }: PackagesRequest){
-    const _package = await this.packageRepository.findById(packageId.toString())
+    id,
+
+  }: PackagesRequest) {
+    const _package = await this.packageRepository.findById(id.toString())
 
     if (!_package) {
       throw new Error('Package not found')

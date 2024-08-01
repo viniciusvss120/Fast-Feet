@@ -17,51 +17,51 @@ export interface RecipientProps {
 }
 
 export class Recipient extends Entity<RecipientProps> {
-  get recipientId () {
+  get recipientId() {
     return this.props.recipientId
   }
 
-  get name () {
+  get name() {
     return this.props.name
   }
 
-  get packageId () {
+  get packageId() {
     return this.props.packageId
   }
 
-  get rua () {
+  get rua() {
     return this.props.rua
   }
 
-  get numero () {
+  get numero() {
     return this.props.numero
   }
-  
-  get bairro () {
+
+  get bairro() {
     return this.props.bairro
   }
 
-  get cidade () {
+  get cidade() {
     return this.props.cidade
   }
 
-  get estado () {
+  get estado() {
     return this.props.estado
   }
 
-  get latitude () {
+  get latitude() {
     return this.props.latitude
   }
 
-  get longitude () {
+  get longitude() {
     return this.props.longitude
   }
 
-  get createdAt () {
+  get createdAt() {
     return this.props.createdAt
   }
 
-  get updatedAt () {
+  get updatedAt() {
     return this.props.updatedAt
   }
 
@@ -73,43 +73,43 @@ export class Recipient extends Entity<RecipientProps> {
     return this.props
   }
 
-  set rua (rua: string) {
+  set rua(rua: string) {
     this.props.rua = rua
 
     this.touch()
   }
 
-  set numero (numero: number) {
+  set numero(numero: number) {
     this.props.numero = numero
 
     this.touch()
   }
 
-  set bairro (bairro: string) {
+  set bairro(bairro: string) {
     this.props.bairro = bairro
 
     this.touch()
   }
 
-  set packageId (packageId: string[]) {
-    this.props.packageId = packageId
+  set packageId(id: string[]) {
+    this.props.packageId = id
 
     this.touch()
   }
 
-  set latitude (latitude: number) {
+  set latitude(latitude: number) {
     this.props.latitude = latitude
 
     this.touch()
   }
 
-  set longitude (longitude: number) {
+  set longitude(longitude: number) {
     this.props.longitude = longitude
 
     this.touch()
   }
 
-  static create(props: RecipientProps){
+  static create(props: RecipientProps) {
     const recipient = new Recipient(props)
     return recipient
   }

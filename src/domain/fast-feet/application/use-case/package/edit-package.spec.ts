@@ -40,7 +40,7 @@ describe('Edit package', async () => {
     })
 
     const _package = await Package.create({
-      packageId: new UniqueEntityId('package-1'),
+      id: new UniqueEntityId('package-1'),
       name: 'Vinicius Silva',
       userId: user.userId.toString(),
       recipient,

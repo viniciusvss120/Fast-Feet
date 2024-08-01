@@ -5,7 +5,7 @@ import { StatusValueObject } from "@/domain/fast-feet/entities/value-object/stat
 import { Recipient } from "@/domain/fast-feet/entities/recipient";
 
 interface PackageRequest {
-  packageId: UniqueEntityId
+  id: UniqueEntityId
   name: string
   userId: string
   recipient: Recipient
@@ -20,7 +20,7 @@ export class CreatePackageUseCase {
   constructor(private recipienRepository: PackageRepository) { }
 
   async execute({
-    packageId,
+    id,
     name,
     userId,
     recipient,
@@ -29,7 +29,7 @@ export class CreatePackageUseCase {
   }: PackageRequest): Promise<PackageResponse> {
 
     const _package = await Package.create({
-      packageId,
+      id: id,
       name,
       userId,
       recipient,

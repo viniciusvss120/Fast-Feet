@@ -8,7 +8,7 @@ export class InMemoryPackage implements PackageRepository {
   public items: Package[] = []
 
   async findById(id: string): Promise<Package | null> {
-    const result = this.items.find((_package) => _package.packageId.toString() === id)
+    const result = this.items.find((_package) => _package.id.toString() === id)
 
     if (!result) {
       return null
@@ -38,21 +38,21 @@ export class InMemoryPackage implements PackageRepository {
   }
 
   async save(_package: Package): Promise<void> {
-    const packageIndex = await this.items.findIndex(index => index.packageId === _package.packageId)
+    const packageIndex = await this.items.findIndex(index => index.id === _package.id)
 
     this.items[packageIndex] = _package
-     DomainEvents.dispatchEventsForAggregate(_package.packageId)
+    DomainEvents.dispatchEventsForAggregate(_package.id)
   }
 
   async create(_package: Package) {
     this.items.push(_package)
-    
-    DomainEvents.dispatchEventsForAggregate(_package.packageId)
+
+    DomainEvents.dispatchEventsForAggregate(_package.id)
 
   }
 
   async delete(_package: Package): Promise<void> {
-    const packageIndex = await this.items.findIndex(index => index.packageId === _package.packageId)
+    const packageIndex = await this.items.findIndex(index => index.id === _package.id)
 
     this.items.splice(packageIndex, 1)
   }

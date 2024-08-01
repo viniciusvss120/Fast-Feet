@@ -21,7 +21,7 @@ export class OnChangeStatusPackage implements EventHandler {
   }
 
   private async sendNewStatusPackageNotification({ packageEntity }: CreatePackageEvent) {
-    const _package = await this.packageRepository.findById(packageEntity.packageId.toString())
+    const _package = await this.packageRepository.findById(packageEntity.id.toString())
 
     if (_package) {
       await this.sendNotifications.execute({

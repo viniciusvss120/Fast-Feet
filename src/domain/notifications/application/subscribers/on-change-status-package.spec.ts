@@ -3,7 +3,7 @@ import { InMemoryPackage } from "../../../../../test/repository/in-memory-packeg
 import { OnChangeStatusPackage } from "./on-change-status-package";
 import { SendNotifications } from "../user-case/send-notification";
 import { InMemoryNotifications } from "../../../../../test/repository/in-memory-notifications";
-import { beforeEach } from "node:test";
+import { beforeEach } from "vitest";
 import { Package } from "@/domain/fast-feet/entities/package";
 import { UniqueEntityId } from "@/core/entities/unique-entiti-id";
 import { StatusValueObject } from "@/domain/fast-feet/entities/value-object/status";
@@ -29,7 +29,7 @@ describe('On change status package', () => {
   })
   it.only('should be abble to change status to package', async () => {
 
-    const user = await User.create({
+    const user = User.create({
       userId: new UniqueEntityId('user-1'),
       name: 'Vinicius Silva',
       cpf: '000.000.111-85',
@@ -38,7 +38,7 @@ describe('On change status package', () => {
       createdAt: new Date()
     })
 
-    const recipient = await Recipient.create({
+    const recipient = Recipient.create({
       recipientId: new UniqueEntityId('recipient-1'),
       name: 'Vinicius Silva',
       rua: 'Ali Perto',
@@ -54,7 +54,7 @@ describe('On change status package', () => {
 
     try {
       const _package = await Package.create({
-        packageId: new UniqueEntityId('package-1'),
+        id: new UniqueEntityId('package-1'),
         name: 'Vinicius Silva',
         userId: user.userId.toString(),
         recipient,
@@ -65,16 +65,16 @@ describe('On change status package', () => {
       await inMemoryPackage.create(_package)
 
     } catch (error) {
-      console.log('Deu ruim' ,error)
+      console.log('Deu ruim', error)
     }
 
-    // const notification = await sendNotifications.execute({
-    //   recipientId: 'user-1',
-    //   title: 'Notificação',
-    //   content: 'Pedido criado com sucesso :)'
-    // })
+    const notification = await sendNotifications.execute({
+      recipientId: 'user-1',
+      title: 'Notificação',
+      content: 'Pedido criado com sucesso :)'
+    })
 
-    // console.log(notification.notification)
+    console.log(notification.notification)
     expect(sendNotifications).toBeDefined()
 
 

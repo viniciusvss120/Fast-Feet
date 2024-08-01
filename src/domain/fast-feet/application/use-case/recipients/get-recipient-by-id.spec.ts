@@ -22,7 +22,7 @@ describe('Get recipient', async () => {
       bairro: 'Jardim luz',
       cidade: 'Jaru',
       estado: 'Rondônia',
-      packageId: [],
+      id: [],
       latitude: 0,
       longitude: 0,
       createdAt: new Date()

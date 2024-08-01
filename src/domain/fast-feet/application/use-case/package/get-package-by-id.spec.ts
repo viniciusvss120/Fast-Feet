@@ -39,7 +39,7 @@ describe('Get package', async () => {
       createdAt: new Date()
     })
     const _package = await Package.create({
-      packageId: new UniqueEntityId('package-1'),
+      id: new UniqueEntityId('package-1'),
       name: 'Computador Acer Nitro 5 515-65',
       userId: user.userId.toString(),
       recipient: recipient,
@@ -50,12 +50,12 @@ describe('Get package', async () => {
     inMemoryPackages.create(_package)
 
     const result = await sut.execute({
-      packageId: _package.packageId.toString()
+      id: _package.id.toString()
     })
 
     expect(result._package).toEqual(
       expect.objectContaining({
-        packageId: new UniqueEntityId('package-1')
+        id: new UniqueEntityId('package-1')
       })
     )
   })

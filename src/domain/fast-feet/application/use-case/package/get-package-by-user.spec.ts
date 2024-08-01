@@ -41,7 +41,7 @@ describe('Get package', async () => {
     })
 
     const _package1 = await Package.create({
-      packageId: new UniqueEntityId('package-1'),
+      id: new UniqueEntityId('package-1'),
       name: 'Computador Acer Nitro 5 515-65',
       userId: user.userId.toString(),
       recipient: recipient,
@@ -52,7 +52,7 @@ describe('Get package', async () => {
     inMemoryPackages.create(_package1)
 
     const _package2 = await Package.create({
-      packageId: new UniqueEntityId('package-2'),
+      id: new UniqueEntityId('package-2'),
       name: 'Mouse sem fio',
       userId: user.userId.toString(),
       recipient: recipient,
@@ -65,13 +65,14 @@ describe('Get package', async () => {
     const result = await sut.execute({
       userId: user.userId.toString()
     })
+
     expect(result._package).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
-          packageId: new UniqueEntityId('package-1')
+          id: new UniqueEntityId('package-1')
         }),
         expect.objectContaining({
-          packageId: new UniqueEntityId('package-2')
+          id: new UniqueEntityId('package-2')
         })
       ])
     )

@@ -38,7 +38,7 @@ describe('Create recipient', async () => {
       createdAt: new Date()
     })
     await sut.execute({
-      packageId: new UniqueEntityId('package-1'),
+      id: new UniqueEntityId('package-1'),
       name: 'Computador Acer Nitro 5 515-65',
       userId: user.userId.toString(),
       recipient: recipient,

@@ -8,67 +8,67 @@ export interface UserProps {
   cpf: string
   password: string
   role: string
-  // packageId: string[]
+  // id: string[]
   createdAt: Date
-  updatedAt?: Date| null
+  updatedAt?: Date | null
 }
 
 export class User extends Entity<UserProps> {
-  get userId (){
+  get userId() {
     return this.props.userId
   }
 
-  get name (){
+  get name() {
     return this.props.name
   }
 
-  get cpf (){
+  get cpf() {
     return this.props.cpf
   }
 
-  get password (){
+  get password() {
     return this.props.password
   }
-  
-  get role (){
+
+  get role() {
     return this.props.role
   }
 
-  // get packageId (){
-  //   return this.props.packageId
+  // get id (){
+  //   return this.props.id
   // }
 
-  get createdAt (){
+  get createdAt() {
     return this.props.createdAt
   }
 
-  get updatedAt (){
+  get updatedAt() {
     return this.props.updatedAt
   }
 
-  private touch (){
+  private touch() {
     this.props.updatedAt = new Date()
   }
 
-  set role (role: string) {
+  set role(role: string) {
     this.props.role = role
 
     this.touch()
   }
 
-  // set packageId (packageId: string[]) {
-  //   this.props.packageId = packageId
+  // set id (id: string[]) {
+  //   this.props.id = id
 
   //   this.touch()
   // }
 
-  set password (password: string) {
+  set password(password: string) {
     this.props.password = password
 
     this.touch()
   }
 
-  static create(props: UserProps){
+  static create(props: UserProps) {
     const user = new User(props)
     return user
   }
