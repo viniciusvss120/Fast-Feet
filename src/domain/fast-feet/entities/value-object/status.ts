@@ -4,7 +4,7 @@
 
 export enum Status {
   aguardando = 'aguardando',
-  retirada = 'retirada',
+  retirado = 'retirado',
   entregue = 'entregue',
   devolvida = 'devolvida',
   cancelado = 'cancelado',
@@ -17,7 +17,12 @@ export class StatusValueObject {
     return this.value
   }
 
-  constructor(value?: Status){
+  constructor(value?: Status) {
     this.value = value ?? Status.aguardando
+  }
+
+  Changevalue(value: string) {
+    
+    this.value = value
   }
 }
